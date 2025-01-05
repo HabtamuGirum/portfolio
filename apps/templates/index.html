@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habtamu's Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'images/my-avater.png' %}">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Ionicons CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" rel="modulepreload">
+  <link href="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js" rel="stylesheet">
+</head>
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="{% static 'images/my-avater.png' %}" alt="Habtamu Girum" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Habtamu Girum">Habtamu Girum</h1>
+          <p class="title" style="color:#a88732">Developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span style="color:#a88732">Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:habtamugirum478@gmail.com" class="contact-link" style="color:#a88732">habtamugirum478@gmail.com</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <a href="tel:+251948730766" class="contact-link" style="color:#a88732">+251-948-73-07-66</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Github</p>
+              <a href="https://github.com/HabibiGirum" class="contact-link" style="color:#a88732">Habtamu Girum</a>
+            </div>
+          </li>
+
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address style="color:#a88732" >Ethiopia, Addis Ababa</address>
+            </div>
+          </li>
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+         <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="navbar-list">
+      <li class="navbar-item">
+        <a href="{% url 'about' %}" class="navbar-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+      </li>
+      <li class="navbar-item">
+        <a href="{% url 'resume' %}" class="navbar-link {% if request.resolver_match.url_name == 'resume' %}active{% endif %}">Resume</a>
+      </li>
+      <li class="navbar-item">
+        <a href="{% url 'portfolio' %}" class="navbar-link {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}">Portfolio</a>
+      </li>
+      <!-- <li class="navbar-item">
+        <a href="{% url 'blog' %}" class="navbar-link {% if request.resolver_match.url_name == 'blog' %}active{% endif %}">Blog</a>
+      </li> -->
+      <li class="navbar-item">
+        <a href="{% url 'contact' %}" class="navbar-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <script src="{% static 'js/new.js' %}"></script>
+
+        {% block content %}
+        <!-- Default content if block is not overridden -->
+        {% endblock %}
+    </main>
+
+  <!--
+    - ionicon link
+  -->
+  <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script> -->
+  <!-- <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+</body>
+
+</html> 
