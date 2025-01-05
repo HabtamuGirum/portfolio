@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-7qnl8!gf#oug3g(9s%sh&6u=wx#32s945g%_sc%ok&771+4umv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    '127.0.0.1',  # Localhost for development
+    '.vercel.app',  # Match any subdomain on vercel.app
+]
 
 
 # Application definition
@@ -135,6 +138,8 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # settings.py
 
