@@ -10,31 +10,29 @@
 
   <section class="mapbox" data-mapbox>
     <figure>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15767.5539725679!2d38.807142400000004!3d8.889958400000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2set!4v1736083882508!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252230.25579845774!2d38.613327416509044!3d8.963140367575281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24d49!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1735967358981!5m2!1sen!2set" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </figure>
   </section>
 
   <section class="contact-form">
-
     <h3 class="h3 form-title">Contact Form</h3>
 
-    <form action="#" class="form" data-form>
-
-      <div class="input-wrapper">
-        <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-        <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-      </div>
-
-      <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-      <button class="form-btn" type="submit" disabled data-form-btn>
+    <form method="post" class="form" data-form>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="form-btn" type="submit">
         <ion-icon name="paper-plane"></ion-icon>
         <span>Send Message</span>
       </button>
-
     </form>
-
+    
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </section>
 
 </article>
